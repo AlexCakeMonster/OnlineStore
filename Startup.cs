@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineStore.Data;
 
 namespace OnlineStore
 {
@@ -24,7 +25,7 @@ namespace OnlineStore
         //  
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Data.ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }

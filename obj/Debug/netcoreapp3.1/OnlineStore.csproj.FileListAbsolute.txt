@@ -862,3 +862,4 @@ C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\OnlineStore.csproj.Copy
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\OnlineStore.dll
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\OnlineStore.pdb
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\OnlineStore.genruntimeconfig.cache
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
