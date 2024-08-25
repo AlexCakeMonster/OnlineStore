@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineStore.Models;
 
 namespace OnlineStore.Data
 {
@@ -12,6 +13,8 @@ namespace OnlineStore.Data
         {
 
         }
-        public DbSet<Models.Category> Category { get; set; }
+        public DbSet<Category> Category { get; set; }
+
+        public DbSet<OrderReceiptAddress> orderReceiptAddress { get; set; }
     }
 }
