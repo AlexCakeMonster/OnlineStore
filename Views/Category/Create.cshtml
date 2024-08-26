@@ -2,6 +2,7 @@
 
 <form method="post" asr-action="Create">
     <div class="border p-3">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
         <dev class="from-group row">
             <h2 class="text-info pl-3">Add category</h2>
         </dev>
@@ -13,6 +14,7 @@
                     </div>
                     <div class="col-8">
                         <input asp-for="Name" class="form-control"/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -22,6 +24,7 @@
                     </div>
                     <div class="col-8">
                         <input asp-for="DisplayOrder" class="form-control" />
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -44,5 +47,9 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial" />}
+    }
 
 
