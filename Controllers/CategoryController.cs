@@ -38,8 +38,74 @@ namespace OnlineStore.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return View(obj);           
+        }
+
+        //GET - EDIT
+        public IActionResult Edit(int? Id)
+        {
+            if(Id==null || Id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Category.Find(Id);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+
             return View(obj);
-           
+        }
+
+        //POST - EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Category.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        //GET - EDIT
+        public IActionResult Delete(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Category.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+        //POST - DELETE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? Id)
+        {
+            var obj = _db.Category.Find(Id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _db.Category.Remove(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            
         }
     }
 }

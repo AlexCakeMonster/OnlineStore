@@ -850,3 +850,5 @@ C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\refs\System.Security.Pr
 C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\refs\System.Windows.Extensions.dll
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\OrderReceiptAddress\Index.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\OrderReceiptAddress\Create.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
