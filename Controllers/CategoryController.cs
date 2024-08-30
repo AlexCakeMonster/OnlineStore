@@ -27,7 +27,7 @@ namespace OnlineStore.Controllers
             return View();
         }
 
-        //GET - CREATE
+        //POST - CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
