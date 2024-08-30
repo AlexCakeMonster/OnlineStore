@@ -854,3 +854,7 @@ C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Category\Ed
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\OrderReceiptAddress\Edit.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\OrderReceiptAddress\Delete.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Index.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Create.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Edit.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Delete.cshtml.g.cs

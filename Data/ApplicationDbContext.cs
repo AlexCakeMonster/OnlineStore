@@ -16,5 +16,7 @@ namespace OnlineStore.Data
         public DbSet<Category> Category { get; set; }
 
         public DbSet<OrderReceiptAddress> orderReceiptAddress { get; set; }
+
+        public DbSet<ApplicationType> applicationType { get; set; }
     }
 }
