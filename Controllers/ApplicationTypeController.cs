@@ -18,7 +18,7 @@ namespace OnlineStore.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<ApplicationType> objList = _db.applicationType;
+            IEnumerable<ApplicationType> objList = _db.ApplicationType;
             return View(objList);
         }
 
@@ -35,7 +35,7 @@ namespace OnlineStore.Controllers
         {
             if(ModelState.IsValid)
             {
-                _db.applicationType.Add(obj);
+                _db.ApplicationType.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -50,7 +50,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.applicationType.Find(Id);
+            var obj = _db.ApplicationType.Find(Id);
             if(obj == null)
             {
                 return NotFound();
@@ -64,7 +64,7 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.applicationType.Update(obj);
+                _db.ApplicationType.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,7 +79,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.applicationType.Find(Id);
+            var obj = _db.ApplicationType.Find(Id);
             if (obj == null)
             {
                 return NotFound();
@@ -96,13 +96,13 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.applicationType.Find(Id);
+            var obj = _db.ApplicationType.Find(Id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.applicationType.Remove(obj);
+            _db.ApplicationType.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

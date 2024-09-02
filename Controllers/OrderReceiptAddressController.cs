@@ -17,7 +17,7 @@ namespace OnlineStore.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<OrderReceiptAddress> objList = _db.orderReceiptAddress;
+            IEnumerable<OrderReceiptAddress> objList = _db.OrderReceiptAddress;
             return View(objList);
         }
 
@@ -34,7 +34,7 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.orderReceiptAddress.Add(obj);
+                _db.OrderReceiptAddress.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -50,7 +50,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.orderReceiptAddress.Find(Id);
+            var obj = _db.OrderReceiptAddress.Find(Id);
             if (obj == null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.orderReceiptAddress.Update(obj);
+                _db.OrderReceiptAddress.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -82,7 +82,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.orderReceiptAddress.Find(Id);
+            var obj = _db.OrderReceiptAddress.Find(Id);
             if (obj == null)
             {
                 return NotFound();
@@ -96,14 +96,14 @@ namespace OnlineStore.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? Id)
         {
-            var obj = _db.orderReceiptAddress.Find(Id);
+            var obj = _db.OrderReceiptAddress.Find(Id);
              if(obj == null)
             {
                 return NotFound();
             }
             else
             {
-                _db.orderReceiptAddress.Remove(obj);
+                _db.OrderReceiptAddress.Remove(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
