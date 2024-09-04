@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnlineStore.Data;
 using OnlineStore.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using OnlineStore.Models.ViewModels;
 
 namespace OnlineStore.Controllers
 {
@@ -29,22 +31,32 @@ namespace OnlineStore.Controllers
 
         //GET - UPSERT
         public IActionResult Upsert(int? id)
-        {
-            Product product = new Product();
-            if(id == null)
+        {            
+
+            ProductVm productVm = new ProductVm
+            {
+                Product = new Product(),
+                CategorySelectList = _db.Category.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                })
+            };
+        
+            if (id == null)
             {
                 //this is for create
-                return View(product);
+                return View(productVm);
             }
             else
             {
-                product = _db.Product.Find(id);
-                if(product == null)
+                productVm.Product = _db.Product.Find(id);
+                if(productVm.Product == null)
                 {
                     return NotFound();
                 }
             }
-            return View(product);
+            return View(productVm);
         }
 
         //POST - UPSERT
