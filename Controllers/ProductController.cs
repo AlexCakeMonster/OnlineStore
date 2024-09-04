@@ -7,15 +7,19 @@ using OnlineStore.Data;
 using OnlineStore.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineStore.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace OnlineStore.Controllers
 {
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public ProductController(ApplicationDbContext db)
+        private readonly IWebHostEnvironment webHostEnvironment;
+        public ProductController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
+            this.webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()
         {
@@ -62,15 +66,38 @@ namespace OnlineStore.Controllers
         //POST - UPSERT
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(Product obj)
+        public IActionResult Upsert(ProductVm productVm)
         {
             if (ModelState.IsValid)
             {
-                _db.Product.Add(obj);
+                var files = HttpContext.Request.Form.Files;
+                string webRootPath = webHostEnvironment.WebRootPath;
+
+                if(productVm.Product.Id == 0)
+                {
+                    //Creating
+                    string upload = webRootPath + WC.ImagePath;
+                    string fileName = Guid.NewGuid().ToString();
+                    string extension = Path.GetExtension(files[0].FileName);
+
+                    using(var fileStream = new FileStream(Path.Combine(upload,fileName+extension), FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+
+                    productVm.Product.Image = fileName + extension;
+
+                    _db.Product.Add(productVm.Product);
+                }
+                else
+                {
+                    //updating
+                }
+
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(obj);           
+            return View();           
         }
 
        
