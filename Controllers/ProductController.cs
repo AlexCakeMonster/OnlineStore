@@ -125,7 +125,12 @@ namespace OnlineStore.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View();           
+            productVm.CategorySelectList = _db.Category.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+            return View(productVm);           
         }
 
        
@@ -137,33 +142,43 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            var obj = _db.Category.Find(Id);
-            if (obj == null)
+            Product product = _db.Product.Include(u => u.Category).FirstOrDefault(u => u.Id == Id);
+            
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(obj);
+            return View(product);
         }
 
         //POST - DELETE
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int? Id)
+        public IActionResult DeletePost(int? id)
         {
-            var obj = _db.Category.Find(Id);
+            var obj = _db.Product.Find(id);
 
-            if (obj == null)
+            if (id == null)
             {
                 return NotFound();
             }
             else
-            {
-                _db.Category.Remove(obj);
+            {                
+                string webRootPath = webHostEnvironment.WebRootPath;             
+                string upload = webRootPath + WC.ImagePath;                
+                
+                var File = Path.Combine(upload, obj.Image);
+
+                if (System.IO.File.Exists(File))
+                {
+                    System.IO.File.Delete(File);
+                }
+
+                _db.Product.Remove(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            
+            }                                                    
         }
     }
 }
