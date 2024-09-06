@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineStore.Models.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Controllers
 {
@@ -92,6 +93,33 @@ namespace OnlineStore.Controllers
                 else
                 {
                     //updating
+                    var objFromDb = _db.Product.AsNoTracking().FirstOrDefault(u => u.Id == productVm.Product.Id);
+                    
+                    if(files.Count > 0)
+                    {
+                        string upload = webRootPath + WC.ImagePath;
+                        string fileName = Guid.NewGuid().ToString();
+                        string extension = Path.GetExtension(files[0].FileName);
+                        var oldFile = Path.Combine(upload, objFromDb.Image);
+
+                        if (System.IO.File.Exists(oldFile))
+                        {
+                            System.IO.File.Delete(oldFile);
+                        }
+
+                        using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                        {
+                            files[0].CopyTo(fileStream);
+                        }
+
+                        productVm.Product.Image = fileName + extension;
+                    }
+                    else
+                    {
+                        productVm.Product.Image = objFromDb.Image;
+
+                    }
+                    _db.Product.Update(productVm.Product);
                 }
 
                 _db.SaveChanges();
