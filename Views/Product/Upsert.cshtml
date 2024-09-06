@@ -39,6 +39,15 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
+                        <label asp-for="Product.BriefDescription"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.BriefDescription" class="form-control" />
+                        <span asp-validation-for="Product.BriefDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
                         <label asp-for="Product.Discription"></label>
                     </div>
                     <div class="col-8">
@@ -46,6 +55,7 @@
                         <span asp-validation-for="Product.Discription" class="text-danger"></span>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-4">
                         Image
@@ -63,6 +73,17 @@
                             <option disabled selected>--Select Category</option>
                         </select>
                         <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.ApplicationTypeId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Product.ApplicationTypeId" asp-items="@Model.ApplicationTypeSelectList" class="form-control">
+                            <option disabled selected>--Select Application Type</option>
+                        </select>
+                        <span asp-validation-for="Product.ApplicationTypeId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -101,7 +122,7 @@
     }
     <script>
         $(document).ready(function () {
-            $('.summernote').summernote({ height: 250});            
+            $('.summernote').summernote({ height: 150});            
         });
         function validateInput() {
             if (document.getElementById("uploadBox").value == "") {

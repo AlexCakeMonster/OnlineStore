@@ -13,6 +13,9 @@ namespace OnlineStore.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        [Display(Name = "Brief Description")]
+        public string BriefDescription { get; set; }
         public string Discription { get; set; }
         [Range(1,int.MaxValue)]
         public double Price { get; set; }
@@ -20,7 +23,11 @@ namespace OnlineStore.Models
         [Display(Name = "Category Type")]
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }       
+        public virtual Category Category { get; set; }
+        [Display(Name = "Application Type")]
+        public int ApplicationTypeId { get; set; }
+        [ForeignKey("ApplicationTypeId")]
+        public virtual ApplicationType ApplicationType { get; set; }
 
     }
 }
