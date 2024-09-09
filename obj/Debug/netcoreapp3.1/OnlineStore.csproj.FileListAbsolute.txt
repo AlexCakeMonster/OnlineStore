@@ -861,3 +861,4 @@ C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Application
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Product\Upsert.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
+C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_IndividualProductCard.cshtml.g.cs
