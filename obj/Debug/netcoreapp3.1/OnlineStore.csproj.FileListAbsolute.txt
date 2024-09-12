@@ -863,3 +863,8 @@ C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Product\Ups
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_IndividualProductCard.cshtml.g.cs
 C:\Users\user\source\OnlineStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
+C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\OnlineStore.StaticWebAssets.xml
+C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\user\source\OnlineStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll

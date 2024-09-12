@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineStore.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace OnlineStore.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
